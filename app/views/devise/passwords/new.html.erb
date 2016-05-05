@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+<br>
+<div class="contenidoSecion">
+<section id="signup">
+<div class="header">
+        
+            <h3>Olvidaste tu contraseña?</h3>
+            
+            <p>No hay problema crea una nueva</p>
+            
+        </div>        
+<div class="sep"></div>
+
+ <div class="inputs">
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="actions">
+  <br />
+    <%= f.submit "Enviar un correo con las instrucciones",:class =>'btn btn-success navbar-btn' %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
+</section>
+</div>

@@ -1,0 +1,172 @@
+<!--Contenedor Global -->
+<div class="contenedorGlobal">
+
+<!-- Encabezado -->
+
+  <div class="contenedor">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+  <nav class=" navegador" role="navigation">
+  <div class="navbar-header">
+  <span class="espacio"></span>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="glyphicon glyphicon-th-list color" aria-hidden="true"></span>
+
+      </button>
+    </div>
+  <!-- contenedor del menu -->
+  <div>
+   <!-- Lista de menu -->
+  <div class="menu collapse navbar-collapse navbar-ex1-collapse">
+  <ul>
+  <li><a href="#equipo" class="scroll hvr-underline-from-center">Equipo</a></li>
+  <li><a href="#cursos" class="scroll hvr-underline-from-center">Cursos</a></li>
+  <li><a href="#vision" class="scroll hvr-underline-from-center">Visión</a></li>        
+  <li><a href="#palabras" class="scroll hvr-underline-from-center">Nuestra filosofía</a></li>       
+  </ul>
+  </div>
+  </div>
+</nav>
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div id="fondo"class="carousel-inner" role="listbox">
+    <div class="item active">
+      <%= image_tag "fondo2.jpg", alt: "fondo" %>
+      <div class="carousel-caption">
+        <h1 class="textos2"> Paso a paso se aprende mejor! </h1>
+      </div>
+    </div>
+
+    <div class="item">
+      <%= image_tag "fondo1.jpg", alt: "fondo" %>
+      <div class="carousel-caption">
+        <h1 class="textos"> Aprende arduino y Energias renovables </h1>
+        </div>
+    </div>
+    <div class="item">
+      <%= image_tag "fondo.jpg", alt: "textos" %>
+      <div class="carousel-caption">
+        <h1 class="textos3">Ciencia y tecnológica a tu alcance</h1>
+      </div>
+    </div>
+  </div>
+</div>  
+</div>
+    
+<!-- Final navegador-->
+<!-- Seccion 1-->  
+
+<!-- seccion 2-->
+    <div id="palabras">
+    
+    <!-- iconos y cuadros-->
+        <section class="cuadro">
+        
+        <a href="#0" >
+          <span ><%= image_tag "educacion.png", class: "icon", alt: "IconoEducacion" %></span>
+          <h3>Educación</h3>
+          <p>Experiencias significativas que evocan y motivan un aprendizaje constructivo</p>
+        </a>
+
+        <a href="#0">
+          <span><%= image_tag "exclusivo.png", class: "icon", alt: "IconoExclusividad" %></span>
+          <h3>Exclusividad</h3>
+          <p>Asesorías personalizadas de acuerdo a las necesidades de cada usuario</p>
+        </a>
+
+        <a href="#0">
+          <span><%= image_tag "tiempo.png", class: "icon", alt: "IconoTiempo" %></span>
+          <h3>Flexibilidad</h3>
+          <p>Aprende en cualquier horario desde la comodidad de tu hogar y a tu propia ritmo</p>
+        </a>
+
+        </section>
+        <!--final iconos-->
+    <!-- información-->
+
+        <section class="filosofia" >
+
+        <h2>Actividades Claves</h2>
+        
+        </section>
+
+    </div>
+<!-- seccion 3-->
+
+    <div id="vision" class="seccion3">
+    <section class="somos">
+    <h2>Filosofía</h2>
+        <p>Creemos en un conocimiento universal y accesible para fomentar la creatividad y el mejoramiento continuo de los procesos formativos.
+        </p>
+        </section>
+        
+        <%= image_tag "filosofia.png", class: "imagenes", alt: "filosofiaEmpresarial" %>
+    </div>
+
+    <div class="seccion3">
+      <%= image_tag "vision.png", class: "imagenes imgVision", alt: "Vision" %>
+       <section class="vision">
+    <h2>Visión</h2>
+        <p>Nos proyectamos hacia una sociedad de conocimiento donde los jovenes generen nuevas tecnologias y construyan propuestas que pretendan solucionar las problematicas del entorno actual.
+        </p>
+        </section>
+
+
+    </div>
+<!-- final seccion3-->
+<!--Contactanos-->
+<div id="cursos"class="cursos">
+<h2>Cursos </h2>
+
+<div id="ex4" >
+<%= image_tag "cursos-01.png", alt: "Cursos" %>
+<h3>Aprende sobre las nuevas tecnologías</h3>
+<p><span>✔</span> Aprende a programar codigo paso a paso </p>
+</div>
+
+<div>
+<tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= link_to course.name, course, :class => "btn btn-success navbar-btn btn-posicion" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <%=link_to  "energias",energies_path, :class => "btn btn-success navbar-btn "%>
+  
+</div>
+</div>
+<div class="equipo" id="equipo">
+<section class="tituloEquipo">
+<h2>Equipo de trabajo</h2>
+</section>
+
+<section class="cuadro2">
+<a href="https://github.com/marisbotero"><%= image_tag "maris.JPG", class: "miembros", alt: "Maris Botero" %>
+<h3>Maris botero</h3>
+<p>Ingeniera Electrónica con conocimientos en Back End y Robótica educativa</p>
+</a>
+<a href="https://github.com/arelimoreno">
+<%= image_tag "areli.JPG", class: "miembros", alt: "Areli Moreno" %>
+<h3>Areli Moreno</h3>
+<p>Diseñadora Gráfica con conocimientos en Front End</p>
+</a>
+</section>
+  
+</div>
+<section class="redes">
+<span><a href="https://github.com/arelimoreno/App_wissen"><%= image_tag "github.png", alt: "github" %></a></span>
+</section>
+</div>
+</div>
+
+
+
+

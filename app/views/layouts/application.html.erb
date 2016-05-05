@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Appwissen</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="Description" content="Wissen,Conectando conicimientos"/>
+  <meta name="keywords" content="Programacion, arduino, educacion, robotica, paneles solares"/>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<header >
+ <nav>
+<div class="logo">
+  <a href=""><%= image_tag "logos2.png", class: "imgLogo", alt: "logo" %></a></p>
+  </div>
+  <div class="well well-lg">
+  <div class="derecha">
+
+<% if user_signed_in? %>
+  <p></strong> <%= image_tag(current_user.avatar_url.nil? ?  "foto.png" : current_user.avatar_url, class: "imgAvatar")%> Hola <strong> <%= link_to current_user.name, profile_path(nickname: current_user.nickname) %> 
+  <%= link_to 'Editar', edit_user_registration_path, :class => 'btn btn-success navbar-btn btn-juli' %> 
+
+  <%= link_to "cerrar sesion", destroy_user_session_path, method: :delete, :class => 'btn btn-success navbar-btn btn-juli'  %></p>
+ 
+
+<% else %>
+
+<a href="#" class="btn btn-success navbar-btn btn-juli" data-toggle="modal" data-target="#ModalRegistration"><span class="glyphicon glyphicon-user"></span>Sign up</a>
+<a href="#" class="btn btn-success navbar-btn" data-toggle="modal" data-target="#myModal">Login</a>
+
+<a class=" btn btn-success navbar-btn btn-social btn-facebook" href="<%=user_omniauth_authorize_path(:facebook)%>">
+  <span class="fa fa-facebook"></span>
+  Sign in with Facebook
+</a>
+<% end %>
+
+</div>
+</div>
+</nav>
+</header>
+
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+<%= render partial: 'partials/login' %>
+
+
+<%= render partial: 'partials/modal_registro' %>  
+
+
+</body>
+</html>
+
+

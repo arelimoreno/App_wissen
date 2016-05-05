@@ -1,0 +1,52 @@
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="contenidoSecion">
+<section id="signup">
+<div class="header">
+        
+            <h3>Iniciar Sesión</h3>
+            
+            <p>Ingresa y Descubre el mundo de la Programación</p>
+            
+        </div>        
+<div class="sep"></div>
+
+ <div class="inputs">
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+  <br>
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+<div class="checkboxy">
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+    <br>
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me, 'Recordarme', :class=>"terms" %>
+    </div>
+  <% end -%>
+</div>
+
+  <div class="actions">
+    <%= f.submit "iniciar", :class => 'btn btn-success navbar-btn' %>
+  </div>
+<% end %>
+</div>
+<%= render "devise/shared/links" %>
+</section>
+</div>
+
+
+

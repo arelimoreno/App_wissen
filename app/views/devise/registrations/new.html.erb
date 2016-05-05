@@ -1,0 +1,69 @@
+<br>
+<br>
+<br>
+<br>
+<div class="contenidoSecion">
+<section id="signup">
+<div class="header">
+        
+            <h3>Registrate</h3>
+            
+            <p>Ingresa y Descubre el mundo de la Programación</p>
+            
+        </div>        
+<div class="sep"></div>
+
+ <div class="inputs">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <span><%= image_tag "foto.png", class: "cargarImagen" %></span><strong>Mi Avatar</strong>
+    <%= f.label :avatar, "..." %>
+    <%= f.file_field :avatar%>
+  </div>
+
+  <div class="field">
+  <br>
+    <%= f.label :name," Nombre "%>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+  <br>
+    <%= f.label :nickname,"Nombre de perfil " %>
+    <%= f.text_field :nickname %>
+  </div>
+
+  <div class="field">
+  <br>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+  <br>
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(Minimo <%= @minimum_password_length %> characteres )</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+  <br>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Registrarme",:class => 'btn btn-success navbar-btn' %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
+</section>
+
+</div>

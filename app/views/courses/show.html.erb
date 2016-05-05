@@ -1,0 +1,70 @@
+<div class="contenedorCursos">
+<p id="notice"><%= notice %></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <section class="col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1"> 
+  <p><span><%= image_tag "robot-01.png", alt: "Robot" %></span>
+   
+   <strong class="titulo"><%= @course.name %></strong>
+  </p>
+  </section>
+</div>
+<div class="row">
+<section class="col-xs-offset-1 col-sm-offset-1 col-md-offset-1 unidad">
+<div class="panel-body descripcion">
+<h2>Unidades del curso </h2>
+<p><strong>Intensidad:</strong>
+    <%= @course.intensity %> Horas Aproximadamente
+</p>
+<p><strong>Descripcion:</strong>
+  <%= @course.description %>
+</p>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      
+      <th>Nombre</th>
+      <th>Descripcion de la unidad</th>
+      <th>Puntos</th>
+     
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  
+    <% @course.units.each do |unit| %>
+      <tr>
+        
+        <td><%= unit.name %></td>        
+        <td><%= unit.description %></td>
+        <td><span><%= image_tag "puntos-01.png", class: "puntos", alt: "Puntos" %></span> 10 puntos</td>
+        
+      
+      <td><%= link_to  "Empezar", course_unit_path(@course,unit),:class => "btn btn-success navbar-btn" %></td>
+
+
+      
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,61 @@
+<br>
+<br>
+<br>
+<br>
+<div class="contenidoSecion">
+<section id="signup">
+<div class="header">
+        
+<h3>Editar Datos</h3>
+</div>        
+
+<div class="sep"></div>
+
+ <div class="inputs">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+  
+<div class="field">
+<span><%= image_tag "foto.png", class: "cargarImagen" %></span><strong>Mi Avatar</strong>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
+  <br>
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname %>
+  </div>
+
+  <div class="field">
+  <br>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+  <br>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+
+  <div class="actions">
+  <br>
+    <%= f.submit "Actualizar", :class => 'btn btn-success navbar-btn' %>
+  </div>
+<% end %>
+
+<h3>Cancelarmi Cuenta</h3>
+
+<p>Estas seguro que deseas Cancelar? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => 'btn btn-success navbar-btn' %></p>
+
+<%= link_to "volver atras", :back %>
+</div>
+</section>
+</div>
